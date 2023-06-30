@@ -2,22 +2,12 @@ import About from "@/components/sections/About";
 import Certificates from "@/components/sections/Certificates";
 import Logo from "@/components/sections/Logo";
 import Projects from "@/components/sections/Projects";
-import { Action } from "@/types/ActionTypes";
-
-interface IReducerState {
-    type: Action;
-    current: JSX.Element;
-    border: boolean;
-}
-
-interface IActionType {
-    type: Action;
-    payload?: JSX.Element;
-}
+import { Action } from "@/enums";
+import { IReducerAction, IReducerState } from "@/types";
 
 const contentReducer = (
     state: IReducerState,
-    action: IActionType
+    action: IReducerAction
 ): IReducerState => {
     const logo = {
         type: Action.LOGO,

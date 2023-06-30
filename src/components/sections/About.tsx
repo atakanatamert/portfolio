@@ -22,13 +22,7 @@ const listVariants = {
     },
 };
 
-//<motion.img src={"/assets/images/ProfilePic.png"} className=""/>
-
 const About = () => {
-    //const { sectionActions } = useContext(HeaderContext);
-
-    //const isVisible = sectionActions?.isVisible;
-
     return (
         <motion.div variants={listVariants} className="flex flex-col pt-10">
             <motion.div className="rounded-full border-[3px] border-white object-cover m-auto w-5/12 aspect-square bg-cover bg-center bg-[url('/assets/images/ProfilePic.webp')]"></motion.div>

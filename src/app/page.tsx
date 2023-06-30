@@ -15,8 +15,7 @@ import Certificates from "@/components/sections/Certificates";
 import Logo from "@/components/sections/Logo";
 import { useAnimate } from "framer-motion";
 import { IAnimationObject } from "@/types/AnimationTypes";
-import { References } from "@/types/ReferenceTypes";
-import { Action } from "@/types/ActionTypes";
+import { Action, Reference } from "@/enums";
 interface ILogoColorRefs {
     anchorRef: HTMLDivElement | null;
     logoRef: HTMLDivElement | null;
@@ -39,12 +38,12 @@ const Home = () => {
     const updatedSections = [Action.PROJECTS, Action.CERTS, Action.ABOUT];
 
     const animationReferences: IAnimationObject = {
-        [References.CONTAINER]: {
+        [Reference.CONTAINER]: {
             scope: containerRef,
             animate: containerAnimate,
             render: <Logo />,
         },
-        [References.BORDER]: {
+        [Reference.BORDER]: {
             scope: borderRef,
             animate: borderAnimate,
         },

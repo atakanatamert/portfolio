@@ -1,16 +1,7 @@
 "use client";
 
-import {
-    createContext,
-    useReducer,
-    Reducer,
-    useContext,
-    useEffect,
-    Dispatch,
-} from "react";
+import { createContext, useReducer, Reducer, useState } from "react";
 
-import type { IAnimationObject } from "../types/AnimationTypes";
-import { Action } from "@/types/ActionTypes";
 import Logo from "@/components/sections/Logo";
 import {
     closeBorder,
@@ -19,20 +10,8 @@ import {
     openContent,
 } from "@/animations/ContentActions";
 import contentReducer from "@/reducers/ContentReducer";
-import { References } from "@/types/ReferenceTypes";
-import Projects from "@/components/sections/Projects";
-import { ImportOrExportSpecifier } from "typescript";
-
-interface IReducerState {
-    type: Action;
-    current: JSX.Element;
-    border: boolean;
-}
-
-interface IActionType {
-    type: Action;
-    payload?: JSX.Element;
-}
+import { IAnimationObject, IReducerAction, IReducerState } from "@/types";
+import { Action } from "@/enums";
 
 const initialValue: IReducerState = {
     type: Action.LOGO,
@@ -44,10 +23,12 @@ const AnimationContext = createContext<{
     animationReferences: IAnimationObject;
     updateContent: Function;
     content: IReducerState;
+    isDisabled: boolean;
 }>({
     animationReferences: {},
     updateContent: () => { },
     content: { type: Action.LOGO, current: <Logo />, border: false },
+    isDisabled: false,
 });
 
 export const AnimationProvider = ({
@@ -57,12 +38,14 @@ export const AnimationProvider = ({
     animationReferences: IAnimationObject;
     children: JSX.Element;
 }) => {
-    const [content, dispatch] = useReducer<Reducer<IReducerState, IActionType>>(
-        contentReducer,
-        initialValue
-    );
+    const [content, dispatch] = useReducer<
+        Reducer<IReducerState, IReducerAction>
+    >(contentReducer, initialValue);
 
-    const updateContent = async (action: IActionType) => {
+    const [isDisabled, setIsDisabled] = useState(false);
+
+    const updateContent = async (action: IReducerAction) => {
+        setIsDisabled(true);
         if (content.border) {
             await closeBorder(animationReferences);
         }
@@ -71,16 +54,17 @@ export const AnimationProvider = ({
             type: action.type,
         });
         if (action.type !== content.type) {
-            //This is the case for clicking on same option for second time
             openBorder(animationReferences);
         }
         openContent(animationReferences);
+        setIsDisabled(false);
     };
 
     const value = {
         animationReferences,
         updateContent,
         content,
+        isDisabled,
     };
 
     return (

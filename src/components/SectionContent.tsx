@@ -1,61 +1,21 @@
 "use client";
 import { rectBorderVariants } from "@/animations/ContentAnimations";
-import HeaderContext from "@/contexts/HeaderContext";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-    Ref,
-    RefObject,
-    forwardRef,
-    useContext,
-    useEffect,
-    useImperativeHandle,
-    useRef,
-} from "react";
+import { forwardRef, useContext, useImperativeHandle, useRef } from "react";
 
-import { References } from "@/types/ReferenceTypes";
 import AnimationContext from "@/contexts/AnimationContext";
-import { Action } from "@/types/ActionTypes";
-
-function changeHue(event: MouseEvent) {
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
-}
-//<div className="mr-4 z-0 w-72 h-72 bg-black rounded-full filter blur-lg"></div>
-//
-//
-//
-// {render ? (
-//     render
-// ) : (
-//     <motion.div
-//         className="absolute inset-0 flex justify-center items-center z-10"
-//         animate={isVisible ? "close" : "open"}
-//     >
-//         <video autoPlay loop muted>
-//             <source
-//                 src="/assets/videos/LogoAnimationLight.webm"
-//                 type="video/webm"
-//             />
-//         </video>
-//     </motion.div>
-// )}
-// animate={
-//     isVisible && sectionActions?.selectedSection !== "Logo"
-//         ? "visible"
-//         : "close"
-// }
+import { Action, Reference } from "@/enums";
 
 interface ILogoColorRefs {
     anchorRef: HTMLDivElement | null;
     logoRef: HTMLDivElement | null;
 }
 const SectionContent = forwardRef<ILogoColorRefs>(({ }, ref) => {
-    //const { sectionActions, contentMap } = useContext(HeaderContext);
     const { animationReferences, content } = useContext(AnimationContext);
 
-    const containerRef = animationReferences[References.CONTAINER].scope;
+    const containerRef = animationReferences[Reference.CONTAINER].scope;
 
-    const borderRef = animationReferences[References.BORDER].scope;
+    const borderRef = animationReferences[Reference.BORDER].scope;
 
     const anchorRef = useRef<HTMLDivElement>(null);
 
@@ -65,12 +25,6 @@ const SectionContent = forwardRef<ILogoColorRefs>(({ }, ref) => {
         anchorRef: anchorRef.current,
         logoRef: logoRef.current,
     }));
-
-    //const render = contentMap?.get(sectionActions?.selectedSection || "Logo");
-
-    //const isVisible = sectionActions?.isVisible;
-
-    // ${isVisible ? "pointer-events-auto" : "pointer-events-none"
 
     return (
         <AnimatePresence>
