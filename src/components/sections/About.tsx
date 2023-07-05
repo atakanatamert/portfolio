@@ -1,7 +1,7 @@
 import { listItemVariants } from "@/animations/ContentAnimations";
 import { montserrat } from "@/app/fonts";
 import { motion } from "framer-motion";
-import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
+import { AiFillLinkedin, AiFillGithub, AiFillMail } from "react-icons/ai";
 import LinkButton from "../buttons/LinkButton";
 
 const About = () => {
@@ -25,6 +25,10 @@ const About = () => {
                     />
 
                     <LinkButton url="#" Icon={AiFillLinkedin} />
+                    <LinkButton
+                        url="mailto:atakan.atamert@protonmail.com"
+                        Icon={AiFillMail}
+                    />
                 </div>
             </div>
         </motion.div>
