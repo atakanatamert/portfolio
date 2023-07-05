@@ -1,6 +1,6 @@
 import { montserrat } from "@/app/fonts";
 import ProjectData from "../../assets/projects.json";
-import { color, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { listItemVariants } from "@/animations/ContentAnimations";
 import { IProjects } from "@/types";
 

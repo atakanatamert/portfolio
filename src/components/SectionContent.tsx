@@ -1,7 +1,13 @@
 "use client";
 import { rectBorderVariants } from "@/animations/ContentAnimations";
 import { AnimatePresence, motion } from "framer-motion";
-import { forwardRef, useContext, useImperativeHandle, useRef } from "react";
+import {
+    forwardRef,
+    useContext,
+    useEffect,
+    useImperativeHandle,
+    useRef,
+} from "react";
 
 import AnimationContext from "@/contexts/AnimationContext";
 import { Action, Reference } from "@/enums";
@@ -25,6 +31,10 @@ const SectionContent = forwardRef<ILogoColorRefs>(({ }, ref) => {
         anchorRef: anchorRef.current,
         logoRef: logoRef.current,
     }));
+
+    useEffect(() => {
+        containerRef.current.scrollTo(0, 0);
+    }, [content, containerRef]);
 
     return (
         <AnimatePresence>

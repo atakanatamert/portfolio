@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import DateTime from "@/components/DateTime";
 import { orbitron } from "./fonts";
 import HeaderContext from "@/contexts/HeaderContext";
