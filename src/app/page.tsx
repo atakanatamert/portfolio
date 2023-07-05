@@ -1,12 +1,10 @@
 "use client";
 
-import { useContext, useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import DateTime from "@/components/DateTime";
 import { orbitron } from "./fonts";
 import HeaderContext from "@/contexts/HeaderContext";
-import AnimationContext, {
-    AnimationProvider,
-} from "@/contexts/AnimationContext";
+import { AnimationProvider } from "@/contexts/AnimationContext";
 import SectionHeaders from "@/components/SectionHeaders";
 import SectionContent from "@/components/SectionContent";
 import Projects from "@/components/sections/Projects";
@@ -32,8 +30,6 @@ const Home = () => {
     const [containerRef, containerAnimate] = useAnimate();
 
     const [borderRef, borderAnimate] = useAnimate();
-
-    const sections = ["Projects", "Certs", "About"];
 
     const updatedSections = [Action.PROJECTS, Action.CERTS, Action.ABOUT];
 
@@ -95,15 +91,6 @@ const Home = () => {
         const deg = (rad * 180) / Math.PI;
         return deg;
     };
-
-    //<main className="flex pb-[env(safe-area-inset-bottom)] flex-col items-center justify-between bg-hero-pattern bg-gray-900 bg-opacity-90 overflow-clip">
-    // <Image
-    //     src="/assets/vectors/Logo.svg"
-    //     width={50}
-    // height={50}
-    // alt="Logo"
-    //     />
-    // <main className="flex pb-[env(safe-area-inset-bottom)] flex-col items-center justify-between bg-gradient-to-bl from-gray-800 via-gray-900 to-black overflow-clip">
 
     return (
         <main

@@ -1,40 +1,22 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { poppins } from "@/app/fonts";
-
-const listVariants = {
-    open: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            y: {
-                stiffness: 1000,
-                velocity: -100,
-            },
-        },
-    },
-    close: {
-        y: 50,
-        opacity: 0,
-        transition: {
-            y: {
-                stiffness: 1000,
-                velocity: 100,
-            },
-        },
-    },
-};
+import { montserrat } from "@/app/fonts";
+import { listItemVariants } from "@/animations/ContentAnimations";
 
 const Certificates = () => {
     return (
-        <motion.div variants={listVariants} id="certificates" className="max-w-7xl">
+        <motion.div
+            variants={listItemVariants}
+            id="certificates"
+            className="max-w-7xl"
+        >
             <div className="grid grid-cols-2 grid-rows-7 m-auto pt-8 px-8 pb-8">
                 <div className="row-start-2 row-span-1 col-start-1 col-span-2 m-auto px-4 pt-4 mb-8">
-                    <p className={poppins.className}>
-                        I view certificates not as a proof of deep knowledge or experience,
-                        but rather as a proof of work and setting up a solid foundation. I
-                        think they benefit ones self development and this is the reason why
-                        I got mine.
+                    <p className={`${montserrat.className}`}>
+                        I view certificates not as proof of deep knowledge or expertise, but
+                        rather as proof of work and dedication to learning. I think they
+                        also benefit ones self-development as they are good for laying a
+                        solid foundation and these are the reasons why I got mine.
                     </p>
                 </div>
                 <Link

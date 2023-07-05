@@ -19,7 +19,6 @@ const contentReducer = (
             return logo;
 
         case Action.PROJECTS:
-            console.log("State Type: \n", state.type);
             if (state.type === Action.PROJECTS) {
                 return logo;
             }

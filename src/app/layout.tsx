@@ -1,5 +1,5 @@
 import "./globals.css";
-import { space_mono, orbitron } from "./fonts";
+import { orbitron } from "./fonts";
 
 export const metadata = {
     title: "Atakan Atamert",

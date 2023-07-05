@@ -1,30 +1,7 @@
+import { listItemVariants } from "@/animations/ContentAnimations";
 import AnimationContext from "@/contexts/AnimationContext";
 import { motion } from "framer-motion";
 import { forwardRef, useContext, useImperativeHandle, useRef } from "react";
-import { isIOS, isSafari } from "react-device-detect";
-
-const inOutVariant = {
-    open: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            y: {
-                stiffness: 1000,
-                velocity: -100,
-            },
-        },
-    },
-    close: {
-        y: 50,
-        opacity: 0,
-        transition: {
-            y: {
-                stiffness: 1000,
-            },
-        },
-    },
-};
-
 const Logo = (
     props: {},
     ref: React.Ref<{ anchor: HTMLDivElement; logo: HTMLDivElement }>
@@ -44,7 +21,7 @@ const Logo = (
 
     return (
         <motion.div
-            variants={inOutVariant}
+            variants={listItemVariants}
             id="anchor"
             className="w-full h-full relative z-0"
             ref={anchor}
@@ -55,12 +32,12 @@ const Logo = (
             >
                 <video autoPlay loop muted playsInline>
                     <source
-                        src="/assets/videos/LogoAnimationApple_H.265.mp4"
-                        type="video/mp4;codecs=hvc1"
+                        src="https://res.cloudinary.com/dsmzhrgji/video/upload/v1688584788/p1fme3oz7rguxkvt0w8e.webm"
+                        type="video/webm"
                     />
                     <source
-                        src="/assets/videos/LogoAnimationLight.webm"
-                        type="video/webm"
+                        src="https://res.cloudinary.com/dsmzhrgji/video/upload/v1688584898/jge1je0nuqnfxvdmnear.mp4"
+                        type="video/mp4;codecs=hvc1"
                     />
                 </video>
             </div>

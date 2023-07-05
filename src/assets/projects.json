@@ -1,37 +1,111 @@
 [
     {
         "id": 1,
-        "name": "Test Project",
-        "description": "I absolutely love Tailus! The component blocks are beautifully designed and easy to use, which makes creating a great-looking website a breeze."
+        "name": "Inventory Management for Wire Manufacturing",
+        "stack": [
+            "Next.js",
+            "Chakra UI",
+            "Prisma",
+            "Postgresql",
+            "AWS Cognito",
+            "Vercel",
+            "Railway"
+        ],
+        "description": "This is a major project which combines the wire manufacturing pipeline operations. Including; raw material ordering, raw material management, formulation testing and manufacturing order management.",
+        "project_url": ""
     },
     {
         "id": 2,
-        "name": "Test Project",
-        "description": "I absolutely love Tailus! The component blocks are beautifully designed and easy to use, which makes creating a great-looking website a breeze."
+        "name": "Earthquake Donation Scam Warning",
+        "stack": [
+            "Next.js",
+            "Chakra UI"
+        ],
+        "description": "A website to inform donators about ongoing scams taking advantage of earthquake in Turkey, 2023. Main purpose of this project is to prevent scammers from taking donations from people who are in need.",
+        "project_url": "https://github.com/atakanatamert/deprem-bagis-bilgilendirme"
     },
     {
         "id": 3,
-        "name": "Test Project",
-        "description": "I absolutely love Tailus! The component blocks are beautifully designed and easy to use, which makes creating a great-looking website a breeze."
+        "name": "Energyplus Improvement and Visualization Tool",
+        "stack": [
+            "Node.js",
+            "Electron",
+            "Apexcharts",
+            "Pyidf",
+            "Unity"
+        ],
+        "description": "Tool made for evaluating and comparing the energy efficiency of architectural design alternatives. It streamlined the process, reduced comparison time by 81.3% and editing idf time by 57.6%.",
+        "project_url": "https://github.com/atakanatamert/Energyplus-Improvement-and-Visualization-Tool"
     },
     {
         "id": 4,
-        "name": "Test Project",
-        "description": "I absolutely love Tailus! The component blocks are beautifully designed and easy to use, which makes creating a great-looking website a breeze."
+        "name": "Image4io Node SDK",
+        "stack": [
+            "Node.js",
+            "Typescript"
+        ],
+        "description": "Node.js SDK for the content optimization service Image4io.",
+        "project_url": "https://www.npmjs.com/package/@image4io/image4ionodejssdk"
     },
     {
         "id": 5,
-        "name": "Test Project",
-        "description": "I absolutely love Tailus! The component blocks are beautifully designed and easy to use, which makes creating a great-looking website a breeze."
+        "name": "Manage Wifi",
+        "stack": [
+            "Node.js"
+        ],
+        "description": "Added Windows support to the open source project, manage wifi.",
+        "project_url": "https://github.com/sindresorhus/manage-wifi"
     },
     {
         "id": 6,
-        "name": "Test Project",
-        "description": "I absolutely love Tailus! The component blocks are beautifully designed and easy to use, which makes creating a great-looking website a breeze."
+        "name": "Model2Image Generator",
+        "stack": [
+            "Selenium",
+            "Unity",
+            "Python",
+            "C#"
+        ],
+        "description": "A tool designed to generate object detection model training data from 3D models fetched from various marketplaces.",
+        "project_url": "https://github.com/atakanatamert/Model2ImageGenerator"
     },
     {
         "id": 7,
-        "name": "Test Project",
-        "description": "I absolutely love Tailus! The component blocks are beautifully designed and easy to use, which makes creating a great-looking website a breeze."
+        "name": "Usually Fun Games",
+        "stack": [
+            "Unity",
+            "C#"
+        ],
+        "description": "An attempt of creating a mini Hyper-Casual game studio. 4/6 games currently available on Google Play Store.",
+        "project_url": "https://play.google.com/store/apps/developer?id=Usually+Fun+Games&hl=en_US&gl=US"
+    },
+    {
+        "id": 8,
+        "name": "Digitalized Enigma Machine Reconstruction",
+        "stack": [
+            "C",
+            "STM32"
+        ],
+        "description": "A project to replicate the original Enigma Machine by using STM32. Main objective in this project is to create a machine that is easy to replicate and can be used to teach the basic concepts of cryptology.",
+        "project_url": "https://github.com/atakanatamert/DigitalizedEnigmaMachineReconstruction"
+    },
+    {
+        "id": 9,
+        "name": "Ampleforth MarketCap Trading Bot",
+        "stack": [
+            "Node.js",
+            "AWS Lambda"
+        ],
+        "description": "It is a marketcap trading bot that takes advantage of economy-based ecosystem of Ampleforth. It is just developed for fun and proof of concept.",
+        "project_url": "https://github.com/atakanatamert/Ampleforth-MarketCap-Trading-Bot"
+    },
+    {
+        "id": 10,
+        "name": "The New Deal - Negotiation Agent",
+        "stack": [
+            "Java",
+            "Genius Framework"
+        ],
+        "description": "Negotiation agent that is tuned to perform under uncertainty. It is uses the GENIUS Framework.",
+        "project_url": "https://github.com/atakanatamert/TheNewDeal-NegotiationAgent"
     }
 ]
