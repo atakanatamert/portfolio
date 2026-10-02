@@ -12,10 +12,10 @@ const About = () => {
                 <h1 className="m-auto text-xl pb-4">{"Hi, I'm Atakan Atamert"}</h1>
 
                 <p className={`m-auto ${montserrat.className}`}>
-                    A versatile Full-Stack Web Developer who bring different skills
-                    acquired from working on various projects. Anywhere ranging from cloud
-                    computing, STM32 programming, game development to automation and 3D
-                    modelling.
+                    AI Infrastructure / Platform Engineer working in Go and Kubernetes,
+                    focused on LLM serving and routing. Before that, I built across
+                    cloud computing, STM32 programming, game development, automation and
+                    3D modelling.
                 </p>
 
                 <div className="flex flex-row mt-4">
@@ -24,9 +24,12 @@ const About = () => {
                         Icon={AiFillGithub}
                     />
 
-                    <LinkButton url="#" Icon={AiFillLinkedin} />
                     <LinkButton
-                        url="mailto:atakan.atamert@protonmail.com"
+                        url="https://www.linkedin.com/in/atakan-atamert"
+                        Icon={AiFillLinkedin}
+                    />
+                    <LinkButton
+                        url="mailto:atakanatamert514@gmail.com"
                         Icon={AiFillMail}
                     />
                 </div>
