@@ -1,31 +1,40 @@
 [
     {
         "id": 1,
-        "name": "Inventory Management for Wire Manufacturing",
+        "name": "piri",
         "stack": [
-            "Next.js",
-            "Chakra UI",
-            "Prisma",
-            "Postgresql",
-            "AWS Cognito",
-            "Vercel",
-            "Railway"
+            "Go",
+            "Kubernetes",
+            "OpenShift",
+            "rsync",
+            "SQLite",
+            "kind",
+            "GoReleaser"
         ],
-        "description": "This is a major project which combines the wire manufacturing pipeline operations. Including; raw material ordering, raw material management, formulation testing and manufacturing order management.",
-        "project_url": ""
+        "description": "Moves a stateful app to another Kubernetes cluster without losing a byte, and proves it. Volumes converge over live rsync, then a gated checklist walks the freeze: every irreversible step needs recorded proof before it can advance, and the target needs only a namespace-scoped Role. End-to-end tested against two kind clusters on every push.",
+        "project_url": "https://github.com/atakanatamert/piri"
     },
     {
         "id": 2,
-        "name": "Earthquake Donation Scam Warning",
+        "name": "Flight Recorder (fdr)",
         "stack": [
-            "Next.js",
-            "Chakra UI"
+            "Go",
+            "Git"
         ],
-        "description": "A website to inform donators about ongoing scams taking advantage of earthquake in Turkey, 2023. Main purpose of this project is to prevent scammers from taking donations from people who are in need.",
-        "project_url": "https://github.com/atakanatamert/deprem-bagis-bilgilendirme"
+        "description": "git blame tells you who, fdr tells you why. A local-first provenance tool for AI-assisted codebases: it joins coding-agent session transcripts with git history into an append-only ledger committed with the code. fdr why <file>:<line> returns the originating task, the agent's stated reasoning and the commit. It runs offline and gives the same answer every time, with no model in the loop.",
+        "project_url": "https://github.com/atakanatamert/flight-recorder"
     },
     {
         "id": 3,
+        "name": "anthias-go",
+        "stack": [
+            "Go"
+        ],
+        "description": "Go SDK for the Anthias digital signage player v2 REST API.",
+        "project_url": "https://github.com/atakanatamert/anthias-go"
+    },
+    {
+        "id": 4,
         "name": "Energyplus Improvement and Visualization Tool",
         "stack": [
             "Node.js",
@@ -38,26 +47,7 @@
         "project_url": "https://github.com/atakanatamert/Energyplus-Improvement-and-Visualization-Tool"
     },
     {
-        "id": 4,
-        "name": "Image4io Node SDK",
-        "stack": [
-            "Node.js",
-            "Typescript"
-        ],
-        "description": "Node.js SDK for the content optimization service Image4io.",
-        "project_url": "https://www.npmjs.com/package/@image4io/image4ionodejssdk"
-    },
-    {
         "id": 5,
-        "name": "Manage Wifi",
-        "stack": [
-            "Node.js"
-        ],
-        "description": "Added Windows support to the open source project, manage wifi.",
-        "project_url": "https://github.com/sindresorhus/manage-wifi"
-    },
-    {
-        "id": 6,
         "name": "Model2Image Generator",
         "stack": [
             "Selenium",
@@ -69,17 +59,36 @@
         "project_url": "https://github.com/atakanatamert/Model2ImageGenerator"
     },
     {
-        "id": 7,
-        "name": "Usually Fun Games",
+        "id": 6,
+        "name": "Manage Wifi",
         "stack": [
-            "Unity",
-            "C#"
+            "Node.js"
         ],
-        "description": "An attempt of creating a mini Hyper-Casual game studio. 4/6 games currently available on Google Play Store.",
-        "project_url": "https://play.google.com/store/apps/developer?id=Usually+Fun+Games&hl=en_US&gl=US"
+        "description": "Added Windows support to the open source project, manage wifi.",
+        "project_url": "https://github.com/sindresorhus/manage-wifi"
+    },
+    {
+        "id": 7,
+        "name": "The New Deal - Negotiation Agent",
+        "stack": [
+            "Java",
+            "Genius Framework"
+        ],
+        "description": "Negotiation agent that is tuned to perform under uncertainty. It is uses the GENIUS Framework.",
+        "project_url": "https://github.com/atakanatamert/TheNewDeal-NegotiationAgent"
     },
     {
         "id": 8,
+        "name": "Decentralized Stock Market Blockchain",
+        "stack": [
+            "Solidity",
+            "JavaScript"
+        ],
+        "description": "Early development of a decentralized stock market built on Solidity smart contracts. Its aim is to prevent price and purchase manipulation in global stock markets.",
+        "project_url": "https://github.com/atakanatamert/Decentralized-Stock-Market-Blockchain"
+    },
+    {
+        "id": 9,
         "name": "Digitalized Enigma Machine Reconstruction",
         "stack": [
             "C",
@@ -89,23 +98,12 @@
         "project_url": "https://github.com/atakanatamert/DigitalizedEnigmaMachineReconstruction"
     },
     {
-        "id": 9,
-        "name": "Ampleforth MarketCap Trading Bot",
-        "stack": [
-            "Node.js",
-            "AWS Lambda"
-        ],
-        "description": "It is a marketcap trading bot that takes advantage of economy-based ecosystem of Ampleforth. It is just developed for fun and proof of concept.",
-        "project_url": "https://github.com/atakanatamert/Ampleforth-MarketCap-Trading-Bot"
-    },
-    {
         "id": 10,
-        "name": "The New Deal - Negotiation Agent",
+        "name": "Minified Town of Salem",
         "stack": [
-            "Java",
-            "Genius Framework"
+            "Java"
         ],
-        "description": "Negotiation agent that is tuned to perform under uncertainty. It is uses the GENIUS Framework.",
-        "project_url": "https://github.com/atakanatamert/TheNewDeal-NegotiationAgent"
+        "description": "A minified take on the social deduction game Town of Salem, built in Java.",
+        "project_url": "https://github.com/atakanatamert/MinifiedTownOfSalem"
     }
 ]
