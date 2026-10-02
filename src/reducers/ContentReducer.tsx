@@ -1,4 +1,5 @@
 import About from "@/components/sections/About";
+import Blog from "@/components/sections/Blog";
 import Certificates from "@/components/sections/Certificates";
 import Logo from "@/components/sections/Logo";
 import Projects from "@/components/sections/Projects";
@@ -25,6 +26,15 @@ const contentReducer = (
             return {
                 type: Action.PROJECTS,
                 current: <Projects />,
+                border: true,
+            };
+        case Action.BLOG:
+            if (state.type === Action.BLOG) {
+                return logo;
+            }
+            return {
+                type: Action.BLOG,
+                current: <Blog />,
                 border: true,
             };
         case Action.CERTS:

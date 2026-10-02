@@ -2,8 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import DateTime from "@/components/DateTime";
-import { orbitron } from "./fonts";
+import { orbitron } from "@/app/fonts";
 import HeaderContext from "@/contexts/HeaderContext";
+import BlogContext from "@/contexts/BlogContext";
+import { BLOG_ENABLED } from "@/lib/blogConfig";
+import { IPostMeta } from "@/types";
 import { AnimationProvider } from "@/contexts/AnimationContext";
 import SectionHeaders from "@/components/SectionHeaders";
 import SectionContent from "@/components/SectionContent";
@@ -19,7 +22,7 @@ interface ILogoColorRefs {
     logoRef: HTMLDivElement | null;
 }
 
-const Home = () => {
+const Home = ({ posts }: { posts: IPostMeta[] }) => {
     const [hover, setHover] = useState("");
     const [isVisible, setVisible] = useState(true);
     const [selectedSection, setSelectedSection] = useState("Logo");
@@ -31,7 +34,9 @@ const Home = () => {
 
     const [borderRef, borderAnimate] = useAnimate();
 
-    const updatedSections = [Action.PROJECTS, Action.CERTS, Action.ABOUT];
+    const updatedSections = BLOG_ENABLED
+        ? [Action.PROJECTS, Action.BLOG, Action.CERTS, Action.ABOUT]
+        : [Action.PROJECTS, Action.CERTS, Action.ABOUT];
 
     const animationReferences: IAnimationObject = {
         [Reference.CONTAINER]: {
@@ -105,18 +110,20 @@ const Home = () => {
                     <DateTime className={`text-right ${orbitron.className}`} />
                 </div>
 
-                <AnimationProvider animationReferences={animationReferences}>
-                    <div className="flex xs:flex-col lg:flex-row w-full max-w-7xl m-auto max-h-full">
-                        <HeaderContext.Provider value={headerActions}>
-                            <div className="text-right xs:mb-4 lg:m-auto xs:text-[7vw] sm:text-[4vw] md:text-[2vw] 3xl:text-5xl xs:w-full lg:w-1/3 m-auto">
-                                <SectionHeaders sections={updatedSections} />
+                <BlogContext.Provider value={posts}>
+                    <AnimationProvider animationReferences={animationReferences}>
+                        <div className="flex xs:flex-col lg:flex-row w-full max-w-7xl m-auto max-h-full">
+                            <HeaderContext.Provider value={headerActions}>
+                                <div className="text-right xs:mb-4 lg:m-auto xs:text-[7vw] sm:text-[4vw] md:text-[2vw] 3xl:text-5xl xs:w-full lg:w-1/3 m-auto">
+                                    <SectionHeaders sections={updatedSections} />
+                                </div>
+                            </HeaderContext.Provider>
+                            <div className="xs:w-full lg:w-2/3 m-auto md:pl-44 md:pr-12 grid grid-cols-1 max-h-full h-full overflow-hidden items-center">
+                                <SectionContent ref={logoColorRefs} />
                             </div>
-                        </HeaderContext.Provider>
-                        <div className="xs:w-full lg:w-2/3 m-auto md:pl-44 md:pr-12 grid grid-cols-1 max-h-full h-full overflow-hidden items-center">
-                            <SectionContent ref={logoColorRefs} />
                         </div>
-                    </div>
-                </AnimationProvider>
+                    </AnimationProvider>
+                </BlogContext.Provider>
             </div>
         </main>
     );
