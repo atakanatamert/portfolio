@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useState, type JSX } from "react";
+import { useRef, useState } from "react";
 import DateTime from "@/components/DateTime";
-import { orbitron } from "@/app/fonts";
+import { montserrat, orbitron } from "@/app/fonts";
 import HeaderContext from "@/contexts/HeaderContext";
 import BlogContext from "@/contexts/BlogContext";
 import { BLOG_ENABLED } from "@/lib/blogConfig";
@@ -10,10 +10,9 @@ import { IPostMeta } from "@/types";
 import { AnimationProvider } from "@/contexts/AnimationContext";
 import SectionHeaders from "@/components/SectionHeaders";
 import SectionContent from "@/components/SectionContent";
-import Projects from "@/components/sections/Projects";
-import About from "@/components/sections/About";
-import Certificates from "@/components/sections/Certificates";
 import Logo from "@/components/sections/Logo";
+import HomeLink from "@/components/HomeLink";
+import { SITE_TAGLINE } from "@/lib/site";
 import { useAnimate } from "framer-motion";
 import { IAnimationObject } from "@/types/AnimationTypes";
 import { Action, Reference } from "@/enums";
@@ -26,7 +25,6 @@ const Home = ({ posts }: { posts: IPostMeta[] }) => {
     const [hover, setHover] = useState("");
     const [isVisible, setVisible] = useState(true);
     const [selectedSection, setSelectedSection] = useState("Logo");
-    const projectRef = useRef<HTMLInputElement>(null);
 
     const logoColorRefs = useRef<ILogoColorRefs>(null);
 
@@ -35,8 +33,8 @@ const Home = ({ posts }: { posts: IPostMeta[] }) => {
     const [borderRef, borderAnimate] = useAnimate();
 
     const updatedSections = BLOG_ENABLED
-        ? [Action.PROJECTS, Action.BLOG, Action.CERTS, Action.ABOUT]
-        : [Action.PROJECTS, Action.CERTS, Action.ABOUT];
+        ? [Action.WORK, Action.PROJECTS, Action.BLOG, Action.ABOUT, Action.CONTACT]
+        : [Action.WORK, Action.PROJECTS, Action.ABOUT, Action.CONTACT];
 
     const animationReferences: IAnimationObject = {
         [Reference.CONTAINER]: {
@@ -50,13 +48,6 @@ const Home = ({ posts }: { posts: IPostMeta[] }) => {
         },
     };
 
-    const ContentMap = new Map<string, JSX.Element>([
-        ["Projects", <Projects key="pro" />],
-        ["About", <About key="ab" />],
-        ["Certs", <Certificates key="cert" />],
-        ["Logo", <Logo key="logo" />],
-    ]);
-
     const headerActions = {
         hoverActions: {
             hover,
@@ -68,11 +59,7 @@ const Home = ({ posts }: { posts: IPostMeta[] }) => {
             selectedSection,
             setSelectedSection,
         },
-        contentMap: ContentMap,
     };
-
-    const projectScroll = () =>
-        projectRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
     const handleMouseMove = (event: React.MouseEvent): void => {
         event.preventDefault();
@@ -103,15 +90,19 @@ const Home = ({ posts }: { posts: IPostMeta[] }) => {
             className="flex pb-[env(safe-area-inset-bottom)] flex-col items-center justify-between bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-800 via-gray-950 to-black"
         >
             <div className="flex h-screen w-full flex-col items-center xs:p-8 md:p-24">
-                <div className="flex w-full mb-6 max-w-7xl items-center justify-between font-mono text-sm lg:flex ">
-                    <h1 className={`text-white text-2xl ${orbitron.className}`}>
-                        Atakan Atamert
-                    </h1>
-                    <DateTime className={`text-right ${orbitron.className}`} />
-                </div>
-
                 <BlogContext.Provider value={posts}>
                     <AnimationProvider animationReferences={animationReferences}>
+                        <div className="flex w-full mb-6 max-w-7xl items-start justify-between gap-4 font-mono text-sm lg:flex ">
+                            <div>
+                                <h1 className={`text-white text-2xl ${orbitron.className}`}>
+                                    <HomeLink>Atakan Atamert</HomeLink>
+                                </h1>
+                                <p className={`mt-1 text-gray-400 ${montserrat.className}`}>
+                                    {SITE_TAGLINE}
+                                </p>
+                            </div>
+                            <DateTime className={`text-right ${orbitron.className}`} />
+                        </div>
                         <div className="flex xs:flex-col lg:flex-row w-full max-w-7xl m-auto max-h-full">
                             <HeaderContext.Provider value={headerActions}>
                                 <div className="text-right xs:mb-4 lg:m-auto xs:text-[7vw] sm:text-[4vw] md:text-[2vw] 3xl:text-5xl xs:w-full lg:w-1/3 m-auto">

@@ -9,5 +9,4 @@ export interface IReducerState {
 
 export interface IReducerAction {
     type: Action;
-    payload?: JSX.Element;
 }

@@ -1,7 +1,8 @@
 export enum Action {
+    WORK = "Work",
     PROJECTS = "Projects",
     BLOG = "Blog",
-    CERTS = "Certs",
     ABOUT = "About",
+    CONTACT = "Contact",
     LOGO = "Logo",
 }

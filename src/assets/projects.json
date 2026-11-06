@@ -1,109 +1,132 @@
 [
     {
-        "id": 1,
-        "name": "piri",
-        "stack": [
-            "Go",
-            "Kubernetes",
-            "OpenShift",
-            "rsync",
-            "SQLite",
-            "kind",
-            "GoReleaser"
-        ],
-        "description": "Moves a stateful app to another Kubernetes cluster without losing a byte, and proves it. Volumes converge over live rsync, then a gated checklist walks the freeze: every irreversible step needs recorded proof before it can advance, and the target needs only a namespace-scoped Role. End-to-end tested against two kind clusters on every push.",
-        "project_url": "https://github.com/atakanatamert/piri"
+        "title": "Products",
+        "projects": [
+            {
+                "name": "prepublish.ai",
+                "description": "Audits YouTube scripts and videos. 43k+ visitors and about 1,200 completed analyses in 8 months.",
+                "stack": [
+                    "Go",
+                    "Next.js"
+                ],
+                "project_url": "https://prepublish.ai"
+            },
+            {
+                "name": "stillindexed.com",
+                "description": "SEO indexability monitoring for agencies. Also ships seo-guard, a GitHub Action.",
+                "stack": [
+                    "Go",
+                    "Astro"
+                ],
+                "project_url": "https://stillindexed.com"
+            }
+        ]
     },
     {
-        "id": 2,
-        "name": "Flight Recorder (fdr)",
-        "stack": [
-            "Go",
-            "Git"
-        ],
-        "description": "git blame tells you who, fdr tells you why. A local-first provenance tool for AI-assisted codebases: it joins coding-agent session transcripts with git history into an append-only ledger committed with the code. fdr why <file>:<line> returns the originating task, the agent's stated reasoning and the commit. It runs offline and gives the same answer every time, with no model in the loop.",
-        "project_url": "https://github.com/atakanatamert/flight-recorder"
+        "title": "Open source",
+        "projects": [
+            {
+                "name": "piri",
+                "description": "Moves a stateful app to another Kubernetes cluster without losing a byte, and proves it. Volumes converge over live rsync, then a gated checklist walks the freeze: every irreversible step needs recorded proof before it can advance, and the target needs only a namespace-scoped Role. End-to-end tested against two kind clusters on every push.",
+                "stack": [
+                    "Go",
+                    "Kubernetes",
+                    "OpenShift",
+                    "rsync",
+                    "SQLite",
+                    "kind",
+                    "GoReleaser"
+                ],
+                "project_url": "https://github.com/atakanatamert/piri"
+            },
+            {
+                "name": "Flight Recorder (fdr)",
+                "description": "git blame tells you who, fdr tells you why. A local-first provenance tool for AI-assisted codebases: it joins coding-agent session transcripts with git history into an append-only ledger committed with the code. fdr why <file>:<line> returns the originating task, the agent's stated reasoning and the commit. It runs offline and gives the same answer every time, with no model in the loop.",
+                "stack": [
+                    "Go",
+                    "Git"
+                ],
+                "project_url": "https://github.com/atakanatamert/flight-recorder"
+            },
+            {
+                "name": "anthias-go",
+                "description": "Go SDK for the Anthias digital signage player v2 REST API.",
+                "stack": [
+                    "Go"
+                ],
+                "project_url": "https://github.com/atakanatamert/anthias-go"
+            }
+        ]
     },
     {
-        "id": 3,
-        "name": "anthias-go",
-        "stack": [
-            "Go"
-        ],
-        "description": "Go SDK for the Anthias digital signage player v2 REST API.",
-        "project_url": "https://github.com/atakanatamert/anthias-go"
-    },
-    {
-        "id": 4,
-        "name": "Energyplus Improvement and Visualization Tool",
-        "stack": [
-            "Node.js",
-            "Electron",
-            "Apexcharts",
-            "Pyidf",
-            "Unity"
-        ],
-        "description": "Tool made for evaluating and comparing the energy efficiency of architectural design alternatives. It streamlined the process, reduced comparison time by 81.3% and editing idf time by 57.6%.",
-        "project_url": "https://github.com/atakanatamert/Energyplus-Improvement-and-Visualization-Tool"
-    },
-    {
-        "id": 5,
-        "name": "Model2Image Generator",
-        "stack": [
-            "Selenium",
-            "Unity",
-            "Python",
-            "C#"
-        ],
-        "description": "A tool designed to generate object detection model training data from 3D models fetched from various marketplaces.",
-        "project_url": "https://github.com/atakanatamert/Model2ImageGenerator"
-    },
-    {
-        "id": 6,
-        "name": "Manage Wifi",
-        "stack": [
-            "Node.js"
-        ],
-        "description": "Added Windows support to the open source project, manage wifi.",
-        "project_url": "https://github.com/sindresorhus/manage-wifi"
-    },
-    {
-        "id": 7,
-        "name": "The New Deal - Negotiation Agent",
-        "stack": [
-            "Java",
-            "Genius Framework"
-        ],
-        "description": "Negotiation agent that is tuned to perform under uncertainty. It is uses the GENIUS Framework.",
-        "project_url": "https://github.com/atakanatamert/TheNewDeal-NegotiationAgent"
-    },
-    {
-        "id": 8,
-        "name": "Decentralized Stock Market Blockchain",
-        "stack": [
-            "Solidity",
-            "JavaScript"
-        ],
-        "description": "Early development of a decentralized stock market built on Solidity smart contracts. Its aim is to prevent price and purchase manipulation in global stock markets.",
-        "project_url": "https://github.com/atakanatamert/Decentralized-Stock-Market-Blockchain"
-    },
-    {
-        "id": 9,
-        "name": "Digitalized Enigma Machine Reconstruction",
-        "stack": [
-            "C",
-            "STM32"
-        ],
-        "description": "A project to replicate the original Enigma Machine by using STM32. Main objective in this project is to create a machine that is easy to replicate and can be used to teach the basic concepts of cryptology.",
-        "project_url": "https://github.com/atakanatamert/DigitalizedEnigmaMachineReconstruction"
-    },
-    {
-        "id": 10,
-        "name": "Minified Town of Salem",
-        "stack": [
-            "Java"
-        ],
-        "description": "A minified take on the social deduction game Town of Salem, built in Java.",
-        "project_url": "https://github.com/atakanatamert/MinifiedTownOfSalem"
+        "title": "Earlier work",
+        "projects": [
+            {
+                "name": "Energyplus Improvement and Visualization Tool",
+                "description": "Tool made for evaluating and comparing the energy efficiency of architectural design alternatives. It streamlined the process, reduced comparison time by 81.3% and editing idf time by 57.6%.",
+                "stack": [
+                    "Node.js",
+                    "Electron",
+                    "Apexcharts",
+                    "Pyidf",
+                    "Unity"
+                ],
+                "project_url": "https://github.com/atakanatamert/Energyplus-Improvement-and-Visualization-Tool"
+            },
+            {
+                "name": "Model2Image Generator",
+                "description": "A tool designed to generate object detection model training data from 3D models fetched from various marketplaces.",
+                "stack": [
+                    "Selenium",
+                    "Unity",
+                    "Python",
+                    "C#"
+                ],
+                "project_url": "https://github.com/atakanatamert/Model2ImageGenerator"
+            },
+            {
+                "name": "Manage Wifi",
+                "description": "Added Windows support to the open source project, manage wifi.",
+                "stack": [
+                    "Node.js"
+                ],
+                "project_url": "https://github.com/sindresorhus/manage-wifi"
+            },
+            {
+                "name": "The New Deal - Negotiation Agent",
+                "description": "Negotiation agent that is tuned to perform under uncertainty. It is uses the GENIUS Framework.",
+                "stack": [
+                    "Java",
+                    "Genius Framework"
+                ],
+                "project_url": "https://github.com/atakanatamert/TheNewDeal-NegotiationAgent"
+            },
+            {
+                "name": "Decentralized Stock Market Blockchain",
+                "description": "Early development of a decentralized stock market built on Solidity smart contracts. Its aim is to prevent price and purchase manipulation in global stock markets.",
+                "stack": [
+                    "Solidity",
+                    "JavaScript"
+                ],
+                "project_url": "https://github.com/atakanatamert/Decentralized-Stock-Market-Blockchain"
+            },
+            {
+                "name": "Digitalized Enigma Machine Reconstruction",
+                "description": "A project to replicate the original Enigma Machine by using STM32. Main objective in this project is to create a machine that is easy to replicate and can be used to teach the basic concepts of cryptology.",
+                "stack": [
+                    "C",
+                    "STM32"
+                ],
+                "project_url": "https://github.com/atakanatamert/DigitalizedEnigmaMachineReconstruction"
+            },
+            {
+                "name": "Minified Town of Salem",
+                "description": "A minified take on the social deduction game Town of Salem, built in Java.",
+                "stack": [
+                    "Java"
+                ],
+                "project_url": "https://github.com/atakanatamert/MinifiedTownOfSalem"
+            }
+        ]
     }
 ]

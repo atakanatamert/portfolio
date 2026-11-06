@@ -43,6 +43,10 @@ export const AnimationProvider = ({
     const [isDisabled, setIsDisabled] = useState(false);
 
     const updateContent = async (action: IReducerAction) => {
+        const next = contentReducer(content, action);
+        if (next.type === content.type) {
+            return;
+        }
         setIsDisabled(true);
         if (content.border) {
             await closeBorder(animationReferences);
@@ -51,7 +55,7 @@ export const AnimationProvider = ({
         dispatch({
             type: action.type,
         });
-        if (action.type !== content.type) {
+        if (next.border) {
             openBorder(animationReferences);
         }
         openContent(animationReferences);

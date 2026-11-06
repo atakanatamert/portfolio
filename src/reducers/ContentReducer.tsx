@@ -1,67 +1,37 @@
+import type { JSX } from "react";
 import About from "@/components/sections/About";
 import Blog from "@/components/sections/Blog";
-import Certificates from "@/components/sections/Certificates";
+import Contact from "@/components/sections/Contact";
 import Logo from "@/components/sections/Logo";
 import Projects from "@/components/sections/Projects";
+import Work from "@/components/sections/Work";
 import { Action } from "@/enums";
 import { IReducerAction, IReducerState } from "@/types";
 
+const sections: Partial<Record<Action, () => JSX.Element>> = {
+    [Action.WORK]: () => <Work />,
+    [Action.PROJECTS]: () => <Projects />,
+    [Action.BLOG]: () => <Blog />,
+    [Action.ABOUT]: () => <About />,
+    [Action.CONTACT]: () => <Contact />,
+};
+
+const logo: IReducerState = {
+    type: Action.LOGO,
+    current: <Logo />,
+    border: false,
+};
+
+// Selecting the open section again closes it and goes back to the logo.
 const contentReducer = (
     state: IReducerState,
     action: IReducerAction
 ): IReducerState => {
-    const logo = {
-        type: Action.LOGO,
-        current: <Logo />,
-        border: false,
-    };
-    switch (action.type) {
-        case Action.LOGO:
-            return logo;
-
-        case Action.PROJECTS:
-            if (state.type === Action.PROJECTS) {
-                return logo;
-            }
-            return {
-                type: Action.PROJECTS,
-                current: <Projects />,
-                border: true,
-            };
-        case Action.BLOG:
-            if (state.type === Action.BLOG) {
-                return logo;
-            }
-            return {
-                type: Action.BLOG,
-                current: <Blog />,
-                border: true,
-            };
-        case Action.CERTS:
-            if (state.type === Action.CERTS) {
-                return logo;
-            }
-            return {
-                type: Action.CERTS,
-                current: <Certificates />,
-                border: true,
-            };
-        case Action.ABOUT:
-            if (state.type === Action.ABOUT) {
-                return logo;
-            }
-            return {
-                type: Action.ABOUT,
-                current: <About />,
-                border: true,
-            };
-        default:
-            return {
-                type: Action.LOGO,
-                current: <Logo />,
-                border: false,
-            };
+    const render = sections[action.type];
+    if (!render || state.type === action.type) {
+        return logo;
     }
+    return { type: action.type, current: render(), border: true };
 };
 
 export default contentReducer;
