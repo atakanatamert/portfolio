@@ -90,10 +90,10 @@ const Home = ({ posts }: { posts: IPostMeta[] }) => {
             onMouseMove={handleMouseMove}
             className="flex pb-[env(safe-area-inset-bottom)] flex-col items-center justify-between bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-800 via-gray-950 to-black"
         >
-            <div className="flex h-screen w-full flex-col items-center xs:p-8 md:p-24">
+            <div className="flex h-screen w-full flex-col items-center xs:p-8 md:p-24 md:pb-8">
                 <BlogContext.Provider value={posts}>
                     <AnimationProvider animationReferences={animationReferences}>
-                        <div className="flex w-full mb-6 max-w-7xl items-start justify-between gap-4 font-mono text-sm lg:flex ">
+                        <div className="flex w-full mb-6 max-w-7xl shrink-0 items-start justify-between gap-4 font-mono text-sm lg:flex ">
                             <div>
                                 <h1 className={`text-white text-2xl ${orbitron.className}`}>
                                     <HomeLink>Atakan Atamert</HomeLink>
@@ -105,13 +105,13 @@ const Home = ({ posts }: { posts: IPostMeta[] }) => {
                             </div>
                             <DateTime className={`text-right ${orbitron.className}`} />
                         </div>
-                        <div className="flex xs:flex-col lg:flex-row w-full max-w-7xl m-auto max-h-full">
+                        <div className="flex xs:flex-col lg:flex-row w-full max-w-7xl flex-1 min-h-0">
                             <HeaderContext.Provider value={headerActions}>
                                 <div className="text-right xs:mb-4 lg:m-auto xs:text-[7vw] sm:text-[4vw] md:text-[2vw] 3xl:text-5xl xs:w-full lg:w-1/3 m-auto">
                                     <SectionHeaders sections={updatedSections} />
                                 </div>
                             </HeaderContext.Provider>
-                            <div className="xs:w-full lg:w-2/3 m-auto md:pl-44 md:pr-12 grid grid-cols-1 max-h-full h-full overflow-hidden items-center">
+                            <div className="xs:w-full lg:w-2/3 md:pl-44 md:pr-12 flex-1 min-h-0 flex items-center justify-center [container-type:size]">
                                 <SectionContent ref={logoColorRefs} />
                             </div>
                         </div>

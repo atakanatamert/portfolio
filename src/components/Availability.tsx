@@ -1,5 +1,5 @@
 import { montserrat } from "@/app/fonts";
-import { AVAILABILITY, LOCATION, VISA } from "@/lib/site";
+import { AVAILABILITY, LOCATION } from "@/lib/site";
 
 const Availability = ({ className = "" }: { className?: string }) => (
     <p className={`flex items-start gap-2 text-sm text-gray-200 ${montserrat.className} ${className}`}>
@@ -8,7 +8,7 @@ const Availability = ({ className = "" }: { className?: string }) => (
             className="mt-[0.4em] h-2 w-2 shrink-0 rounded-full bg-emerald-400 shadow-[0_0_8px_theme(colors.emerald.400)]"
         />
         <span>
-            {LOCATION} · {VISA} · {AVAILABILITY}
+            {LOCATION} · {AVAILABILITY}
         </span>
     </p>
 );

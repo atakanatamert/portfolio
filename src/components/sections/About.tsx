@@ -57,9 +57,8 @@ const About = () => {
                         side I build small products and open source tools.
                     </p>
                     <p>
-                        I&apos;m based in Auckland, New Zealand, on a Working Holiday Visa,
-                        and I&apos;m open to full-time roles in backend, Go and platform
-                        engineering.
+                        I&apos;m based in Auckland, New Zealand, and I&apos;m open to
+                        full-time roles in backend, Go and platform engineering.
                     </p>
                 </div>
                 <Availability className="mt-4" />

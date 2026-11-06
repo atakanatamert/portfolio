@@ -10,7 +10,7 @@ const Contact = () => {
     return (
         <motion.div
             variants={listItemVariants}
-            className="flex flex-col justify-center h-full p-8 md:p-12"
+            className="flex flex-col justify-center min-h-full p-8 md:p-12"
         >
             <h2 className="text-xl mb-4">Say hello</h2>
             <p className={`mb-4 ${montserrat.className}`}>

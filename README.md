@@ -14,7 +14,7 @@ npm run lint
 ## Content
 
 - Work history: `src/components/sections/Work.tsx`
-- Projects (Products, Open source, Earlier work): `src/assets/projects.json`
+- Projects (Products, Open source): `src/assets/projects.json`
 - About, certifications and education: `src/components/sections/About.tsx`
 - Email and social links: `src/lib/site.ts`
 
