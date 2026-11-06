@@ -63,7 +63,7 @@ const PostPage = async ({ params }: Props) => {
                     {post.readingMinutes} min read
                 </p>
                 <div
-                    className={`prose prose-invert prose-lg max-w-none prose-a:text-white prose-a:underline-offset-4 prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-800 prose-img:rounded-lg ${montserrat.className}`}
+                    className={`prose prose-invert prose-lg max-w-none prose-p:text-gray-200 prose-li:text-gray-200 prose-a:text-white prose-a:underline-offset-4 prose-code:text-gray-100 prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-800 prose-img:rounded-lg ${montserrat.className}`}
                     dangerouslySetInnerHTML={{ __html: post.html }}
                 />
             </article>
