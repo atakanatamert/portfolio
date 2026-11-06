@@ -12,6 +12,7 @@ import SectionHeaders from "@/components/SectionHeaders";
 import SectionContent from "@/components/SectionContent";
 import Logo from "@/components/sections/Logo";
 import HomeLink from "@/components/HomeLink";
+import Availability from "@/components/Availability";
 import { SITE_TAGLINE } from "@/lib/site";
 import { useAnimate } from "framer-motion";
 import { IAnimationObject } from "@/types/AnimationTypes";
@@ -100,6 +101,7 @@ const Home = ({ posts }: { posts: IPostMeta[] }) => {
                                 <p className={`mt-1 text-gray-400 ${montserrat.className}`}>
                                     {SITE_TAGLINE}
                                 </p>
+                                <Availability className="mt-2" />
                             </div>
                             <DateTime className={`text-right ${orbitron.className}`} />
                         </div>

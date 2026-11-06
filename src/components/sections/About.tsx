@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { AiFillLinkedin, AiFillGithub, AiFillMail } from "react-icons/ai";
 import LinkButton from "../buttons/LinkButton";
+import Availability from "../Availability";
 import { EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/lib/site";
 
 const badges = [
@@ -52,11 +53,16 @@ const About = () => {
                         Kubernetes and CI/CD.
                     </p>
                     <p>
-                        I work as a Full Stack Developer at DHL Supply Chain R&D in
-                        Istanbul. On the side I build small products and open source
-                        tools.
+                        I work as a Full Stack Developer at DHL Supply Chain R&D. On the
+                        side I build small products and open source tools.
+                    </p>
+                    <p>
+                        I&apos;m based in Auckland, New Zealand, on a Working Holiday Visa,
+                        and I&apos;m open to full-time roles in backend, Go and platform
+                        engineering.
                     </p>
                 </div>
+                <Availability className="mt-4" />
 
                 <div className="flex flex-row mt-4">
                     <LinkButton url={GITHUB_URL} Icon={AiFillGithub} label="GitHub" />
