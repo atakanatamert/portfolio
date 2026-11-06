@@ -13,7 +13,7 @@
             },
             {
                 "name": "stillindexed.com",
-                "description": "SEO indexability monitoring for agencies. Also ships seo-guard, a GitHub Action.",
+                "description": "SEO indexability monitoring for agencies. Re-checks the pages you choose and alerts when a change like a noindex or a robots.txt block would drop them from search.",
                 "stack": [
                     "Go",
                     "Astro"
@@ -47,6 +47,15 @@
                     "Git"
                 ],
                 "project_url": "https://github.com/atakanatamert/flight-recorder"
+            },
+            {
+                "name": "seo-guard",
+                "description": "A GitHub Action from stillindexed that fails a deploy when it adds a noindex, blocks Googlebot in robots.txt, breaks a canonical or returns an unexpected status.",
+                "stack": [
+                    "GitHub Actions",
+                    "Node.js"
+                ],
+                "project_url": "https://github.com/stillindexed/seo-guard"
             },
             {
                 "name": "anthias-go",
