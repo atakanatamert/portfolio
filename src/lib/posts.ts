@@ -6,6 +6,7 @@ import { BLOG_ENABLED } from "./blogConfig";
 import { IPost, IPostMeta } from "@/types";
 
 const POSTS_DIR = path.join(process.cwd(), "content", "blog");
+const WORDS_PER_MINUTE = 220;
 
 const toDateString = (value: unknown, file: string): string => {
     const date = value instanceof Date ? value : new Date(String(value));
@@ -21,11 +22,13 @@ const readPost = (file: string): IPost => {
     if (typeof data.title !== "string" || !data.title) {
         throw new Error(`${file}: frontmatter "title" is required`);
     }
+    const words = content.split(/\s+/).filter(Boolean).length;
     return {
         slug: file.replace(/\.md$/, ""),
         title: data.title,
         date: toDateString(data.date, file),
         summary: typeof data.summary === "string" ? data.summary : "",
+        readingMinutes: Math.max(1, Math.round(words / WORDS_PER_MINUTE)),
         html: marked.parse(content, { async: false }),
     };
 };
@@ -46,3 +49,15 @@ export const getAllPosts = (): IPostMeta[] =>
 
 export const getPost = (slug: string): IPost | undefined =>
     readAllPosts().find((post) => post.slug === slug);
+
+// Posts are sorted newest first, so "newer" sits before the slug and "older" after it.
+export const getAdjacentPosts = (
+    slug: string
+): { newer?: IPostMeta; older?: IPostMeta } => {
+    const posts = getAllPosts();
+    const index = posts.findIndex((post) => post.slug === slug);
+    if (index === -1) {
+        return {};
+    }
+    return { newer: posts[index - 1], older: posts[index + 1] };
+};

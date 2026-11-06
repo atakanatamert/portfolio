@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { orbitron } from "./fonts";
+import { BLOG_ENABLED, BLOG_RSS_PATH } from "@/lib/blogConfig";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -14,6 +15,9 @@ export const metadata: Metadata = {
         title: SITE_NAME,
         description: SITE_DESCRIPTION,
     },
+    alternates: BLOG_ENABLED
+        ? { types: { "application/rss+xml": BLOG_RSS_PATH } }
+        : undefined,
 };
 
 export default function RootLayout({

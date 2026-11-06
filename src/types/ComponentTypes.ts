@@ -15,6 +15,7 @@ export interface IPostMeta {
     title: string;
     date: string;
     summary: string;
+    readingMinutes: number;
 }
 
 export interface IPost extends IPostMeta {
