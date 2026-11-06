@@ -2,7 +2,16 @@ import { listItemVariants } from "@/animations/ContentAnimations";
 import { motion } from "framer-motion";
 import { IconType } from "react-icons";
 
-const LinkButton = ({ url, Icon }: { url: string; Icon: IconType }) => {
+const LinkButton = ({
+    url,
+    Icon,
+    label,
+}: {
+    url: string;
+    Icon: IconType;
+    label: string;
+}) => {
+    const isMail = url.startsWith("mailto:");
     return (
         <motion.div
             variants={listItemVariants}
@@ -12,7 +21,12 @@ const LinkButton = ({ url, Icon }: { url: string; Icon: IconType }) => {
             }}
             className="text-2xl mr-4"
         >
-            <a target="_blank" rel="noopener noreferrer" href={url}>
+            <a
+                href={url}
+                aria-label={label}
+                title={label}
+                {...(isMail ? {} : { target: "_blank", rel: "noopener noreferrer" })}
+            >
                 <Icon />
             </a>
         </motion.div>

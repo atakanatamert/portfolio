@@ -5,7 +5,7 @@ import HeaderContext from "@/contexts/HeaderContext";
 import { MouseEvent, useContext, useEffect, useState } from "react";
 
 const BlinkingHeader = ({ headerText }: { headerText: string }) => {
-    const { hoverActions, contentMap } = useContext(HeaderContext);
+    const { hoverActions } = useContext(HeaderContext);
 
     const { updateContent, content, isDisabled } = useContext(AnimationContext);
 
@@ -19,7 +19,7 @@ const BlinkingHeader = ({ headerText }: { headerText: string }) => {
 
     let currentHover = hoverActions?.hover;
 
-    const handleHover = (event: MouseEvent) => {
+    const handleHover = () => {
         hoverActions?.setHover(headerText);
     };
 
@@ -27,7 +27,7 @@ const BlinkingHeader = ({ headerText }: { headerText: string }) => {
         event.stopPropagation();
         event.nativeEvent.stopPropagation();
         if (!isDisabled) {
-            updateContent({ type: headerText, payload: contentMap?.get(headerText) });
+            updateContent({ type: headerText });
         }
     };
 
@@ -35,18 +35,21 @@ const BlinkingHeader = ({ headerText }: { headerText: string }) => {
         content.type === headerText ? "text-white" : "text-gray-400";
 
     return (
-        <h1
+        <button
+            type="button"
             id={headerText}
             onMouseEnter={handleHover}
+            onFocus={handleHover}
             onClick={handleClick}
-            className={`mb-[1.5vh] cursor-pointer ${textColor}`}
+            aria-pressed={content.type === headerText}
+            className={`block ml-auto mb-[1.5vh] cursor-pointer focus:outline-none focus-visible:text-white ${textColor}`}
         >
             {currentHover === headerText
                 ? blink
                     ? `>_\xa0${headerText}`
                     : `>\xa0\xa0\xa0\xa0${headerText}`
                 : `${headerText}`}
-        </h1>
+        </button>
     );
 };
 

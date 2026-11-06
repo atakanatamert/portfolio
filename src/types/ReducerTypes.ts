@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { Action } from "@/enums";
 
 export interface IReducerState {
@@ -8,5 +9,4 @@ export interface IReducerState {
 
 export interface IReducerAction {
     type: Action;
-    payload?: JSX.Element;
 }

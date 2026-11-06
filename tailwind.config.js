@@ -25,10 +25,6 @@ module.exports = {
             backgroundImage: {
                 "hero-pattern": "url('/assets/vectors/HeroPattern.svg')",
                 logo: "url('/assets/vectors/Logo.svg')",
-                certificate: "url('/assets/images/Certificate.png')",
-                "profile-pic": "url('/assets/images/ProfilePic.png')",
-                "code-white": "url('/assets/images/CodeWhite.png')",
-                projects: "url('/assets/images/Projects.png')",
             },
             animation: {
                 "background-slide":

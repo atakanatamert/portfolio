@@ -1,7 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { montserrat, orbitron } from "@/app/fonts";
-import { getAllPosts, getPost } from "@/lib/posts";
+import BlogShell from "@/components/blog/BlogShell";
+import { formatPostDate } from "@/lib/postDate";
+import { getAdjacentPosts, getAllPosts, getPost } from "@/lib/posts";
+import { SITE_NAME } from "@/lib/site";
 
 // Only slugs from generateStaticParams exist. With the blog disabled that list
 // is empty, so every /blog/* URL is a 404.
@@ -10,43 +14,91 @@ export const dynamicParams = false;
 export const generateStaticParams = () =>
     getAllPosts().map((post) => ({ slug: post.slug }));
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-    const post = getPost(params.slug);
-    return post
-        ? { title: `${post.title} | Atakan Atamert`, description: post.summary }
-        : {};
+type Props = { params: Promise<{ slug: string }> };
+
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+    const post = getPost((await params).slug);
+    if (!post) {
+        return {};
+    }
+    const url = `/blog/${post.slug}`;
+    return {
+        title: `${post.title} | ${SITE_NAME}`,
+        description: post.summary || undefined,
+        alternates: { canonical: url },
+        openGraph: {
+            type: "article",
+            url,
+            title: post.title,
+            description: post.summary || undefined,
+            publishedTime: post.date,
+            authors: [SITE_NAME],
+        },
+    };
 };
 
-const PostPage = ({ params }: { params: { slug: string } }) => {
-    const post = getPost(params.slug);
+const PostPage = async ({ params }: Props) => {
+    const { slug } = await params;
+    const post = getPost(slug);
     if (!post) {
         notFound();
     }
+    const { newer, older } = getAdjacentPosts(slug);
 
     return (
-        <main className="min-h-screen flex flex-col items-center bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-800 via-gray-950 to-black xs:p-8 md:p-24">
-            <div className="flex w-full max-w-3xl mb-12 items-center justify-between">
+        <BlogShell>
+            <article className="text-white">
                 <Link
-                    href="/"
-                    className={`text-white text-2xl hover:text-gray-400 ${orbitron.className}`}
+                    href="/blog"
+                    className={`inline-block mb-8 text-sm text-gray-400 hover:text-white ${montserrat.className}`}
                 >
-                    Atakan Atamert
+                    ← All posts
                 </Link>
-            </div>
-            <article className="w-full max-w-3xl text-white">
-                <h1 className={`text-3xl mb-2 ${orbitron.className}`}>{post.title}</h1>
-                <time
-                    dateTime={post.date}
-                    className={`block text-sm text-gray-400 mb-10 ${montserrat.className}`}
-                >
-                    {post.date}
-                </time>
+                <h1 className={`text-3xl leading-snug mb-3 ${orbitron.className}`}>
+                    {post.title}
+                </h1>
+                <p className={`text-sm text-gray-400 mb-12 ${montserrat.className}`}>
+                    <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+                    {" · "}
+                    {post.readingMinutes} min read
+                </p>
                 <div
-                    className={`prose prose-invert max-w-none ${montserrat.className}`}
+                    className={`prose prose-invert prose-lg max-w-none prose-p:text-gray-200 prose-li:text-gray-200 prose-a:text-white prose-a:underline-offset-4 prose-code:text-gray-100 prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-800 prose-img:rounded-lg ${montserrat.className}`}
                     dangerouslySetInnerHTML={{ __html: post.html }}
                 />
             </article>
-        </main>
+            {(newer || older) && (
+                <nav
+                    aria-label="More posts"
+                    className={`grid gap-6 sm:grid-cols-2 mt-20 ${montserrat.className}`}
+                >
+                    {older ? (
+                        <Link
+                            href={`/blog/${older.slug}`}
+                            className="group rounded-lg border border-gray-800 p-4 hover:border-gray-500"
+                        >
+                            <span className="block text-xs text-gray-500">Older</span>
+                            <span className="text-gray-300 group-hover:text-white">
+                                {older.title}
+                            </span>
+                        </Link>
+                    ) : (
+                        <span />
+                    )}
+                    {newer && (
+                        <Link
+                            href={`/blog/${newer.slug}`}
+                            className="group rounded-lg border border-gray-800 p-4 text-right hover:border-gray-500"
+                        >
+                            <span className="block text-xs text-gray-500">Newer</span>
+                            <span className="text-gray-300 group-hover:text-white">
+                                {newer.title}
+                            </span>
+                        </Link>
+                    )}
+                </nav>
+            )}
+        </BlogShell>
     );
 };
 

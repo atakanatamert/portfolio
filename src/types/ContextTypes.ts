@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 
 export interface IHeaderContext {
     hoverActions?: {
@@ -15,5 +15,4 @@ export interface IHeaderContext {
         blink: boolean;
         setBlink: Dispatch<SetStateAction<boolean>>;
     };
-    contentMap?: Map<string, JSX.Element>;
 }

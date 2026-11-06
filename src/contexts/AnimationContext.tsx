@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useReducer, Reducer, useState } from "react";
+import { createContext, useReducer, useState } from "react";
 
 import Logo from "@/components/sections/Logo";
 import {
@@ -36,15 +36,17 @@ export const AnimationProvider = ({
     children,
 }: {
     animationReferences: IAnimationObject;
-    children: JSX.Element;
+    children: React.ReactNode;
 }) => {
-    const [content, dispatch] = useReducer<
-        Reducer<IReducerState, IReducerAction>
-    >(contentReducer, initialValue);
+    const [content, dispatch] = useReducer(contentReducer, initialValue);
 
     const [isDisabled, setIsDisabled] = useState(false);
 
     const updateContent = async (action: IReducerAction) => {
+        const next = contentReducer(content, action);
+        if (next.type === content.type) {
+            return;
+        }
         setIsDisabled(true);
         if (content.border) {
             await closeBorder(animationReferences);
@@ -53,7 +55,7 @@ export const AnimationProvider = ({
         dispatch({
             type: action.type,
         });
-        if (action.type !== content.type) {
+        if (next.border) {
             openBorder(animationReferences);
         }
         openContent(animationReferences);
