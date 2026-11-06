@@ -31,6 +31,9 @@ With the flag on you get:
 - `/blog/<slug>`, one page per post with date, reading time and older/newer links
 - `/blog/rss.xml`, an RSS 2.0 feed, also advertised in the page `<head>`
 
+Three posts are ready in `content/blog/` (piri, Flight Recorder, stillindexed).
+They stay hidden until the flag is on.
+
 Write articles as Markdown files in `content/blog/`. The file name is the URL slug
 (`content/blog/my-post.md` becomes `/blog/my-post`):
 
