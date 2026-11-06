@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { AnimationScope } from "framer-motion";
 
 export interface IAnimationObject {

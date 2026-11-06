@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useReducer, Reducer, useState } from "react";
+import { createContext, useReducer, useState } from "react";
 
 import Logo from "@/components/sections/Logo";
 import {
@@ -36,11 +36,9 @@ export const AnimationProvider = ({
     children,
 }: {
     animationReferences: IAnimationObject;
-    children: JSX.Element;
+    children: React.ReactNode;
 }) => {
-    const [content, dispatch] = useReducer<
-        Reducer<IReducerState, IReducerAction>
-    >(contentReducer, initialValue);
+    const [content, dispatch] = useReducer(contentReducer, initialValue);
 
     const [isDisabled, setIsDisabled] = useState(false);
 

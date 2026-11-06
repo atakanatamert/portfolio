@@ -10,15 +10,17 @@ export const dynamicParams = false;
 export const generateStaticParams = () =>
     getAllPosts().map((post) => ({ slug: post.slug }));
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-    const post = getPost(params.slug);
+type Props = { params: Promise<{ slug: string }> };
+
+export const generateMetadata = async ({ params }: Props) => {
+    const post = getPost((await params).slug);
     return post
         ? { title: `${post.title} | Atakan Atamert`, description: post.summary }
         : {};
 };
 
-const PostPage = ({ params }: { params: { slug: string } }) => {
-    const post = getPost(params.slug);
+const PostPage = async ({ params }: Props) => {
+    const post = getPost((await params).slug);
     if (!post) {
         notFound();
     }
