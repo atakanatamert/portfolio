@@ -14,7 +14,7 @@ const roles: IRole[] = [
     {
         company: "DHL Supply Chain R&D",
         title: "Full Stack Developer",
-        period: "Nov 2023 – present · Istanbul",
+        period: "Nov 2023 – present · Auckland (from late Nov 2026)",
         summary:
             "I build and run backend services and tooling for warehouse and delivery operations. It is client work, so client names stay private.",
         points: [
