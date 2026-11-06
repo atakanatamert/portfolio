@@ -13,7 +13,7 @@ const Projects = () => {
                 <section key={group.title}>
                     <motion.h2
                         variants={listItemVariants}
-                        className={`mx-12 mt-10 text-sm uppercase tracking-widest text-gray-500 ${montserrat.className}`}
+                        className={`mx-6 sm:mx-12 mt-10 text-sm uppercase tracking-widest text-gray-500 ${montserrat.className}`}
                     >
                         {group.title}
                     </motion.h2>
@@ -37,7 +37,7 @@ const Projects = () => {
                                     rel="noopener noreferrer"
                                     href={item.project_url}
                                 >
-                                    <div className="font-medium rounded-3xl mx-12 my-8">
+                                    <div className="font-medium rounded-3xl mx-6 sm:mx-12 my-8">
                                         <h3 className="text-lg mb-2">{item.name}</h3>
                                         <p className={montserrat.className}>{item.description}</p>
                                         <p

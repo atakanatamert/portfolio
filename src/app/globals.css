@@ -3,9 +3,33 @@
 @tailwind utilities;
 
 .info-container {
-  overflow-y: scroll;
+  --fade-top: 0px;
+  --fade-bottom: 0px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 var(--fade-top),
+    #000 calc(100% - var(--fade-bottom)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 var(--fade-top),
+    #000 calc(100% - var(--fade-bottom)),
+    transparent 100%
+  );
+}
+.info-container[data-more-above="true"] {
+  --fade-top: 2.5rem;
+}
+.info-container[data-more-below="true"] {
+  --fade-bottom: 2.5rem;
 }
 .info-container::-webkit-scrollbar {
   /* WebKit */
