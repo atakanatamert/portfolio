@@ -13,7 +13,6 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <link as={"image"} rel="preload" href="/assets/images/ProfilePic.webp" />
             <body className={`bg-gray-900 ${orbitron.className}`}>{children}</body>
         </html>
     );
